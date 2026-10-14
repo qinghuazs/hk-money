@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>深圳・香港 开户远征手册</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B2A4A;
+    --ink-2:#2c3e63;
+    --paper:#F7F3EA;
+    --paper-2:#EFE9DA;
+    --card:#FFFDF8;
+    --stamp:#B23A2E;
+    --teal:#3F6659;
+    --text:#26261F;
+    --text-dim:#6b6a5f;
+    --line:#DCD4BF;
+    --serif:'Source Serif 4', Georgia, serif;
+    --sans:'IBM Plex Sans', -apple-system, sans-serif;
+    --mono:'IBM Plex Mono', monospace;
+    --radius:3px;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-padding-top:76px;}
+  body{
+    margin:0;background:var(--paper);color:var(--text);font-family:var(--sans);
+    font-size:16px;line-height:1.6;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#181712; --paper-2:#211f18; --card:#211f18; --text:#EDE7D8;
+      --text-dim:#a39d89; --line:#3a3628;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#181712; --paper-2:#211f18; --card:#211f18; --text:#EDE7D8;
+    --text-dim:#a39d89; --line:#3a3628;
+  }
+
+  /* ---- header ---- */
+  header{
+    position:sticky; top:0; z-index:20;
+    background:var(--ink); color:#F2EFE4;
+    padding:14px 20px; padding-top:calc(14px + env(safe-area-inset-top,0px));
+    display:flex; align-items:baseline; justify-content:space-between; gap:12px;
+    border-bottom:3px solid var(--stamp);
+  }
+  header .title{font-family:var(--serif); font-weight:700; font-size:19px; letter-spacing:.2px;}
+  header .sub{font-family:var(--mono); font-size:11.5px; color:#B9C2D6; white-space:nowrap;}
+
+  .wrap{max-width:920px; margin:0 auto; padding:0 20px;}
+
+  /* ---- hero ---- */
+  .hero{padding:52px 0 30px; border-bottom:1px solid var(--line);}
+  .hero .eyebrow{font-family:var(--mono); font-size:12.5px; color:var(--stamp); margin-bottom:10px;}
+  .hero h1{font-family:var(--serif); font-size:clamp(30px,5vw,46px); line-height:1.15; margin:0 0 14px; font-weight:700; max-width:14ch;}
+  .hero p{max-width:56ch; color:var(--text-dim); font-size:16px; margin:0 0 20px;}
+  .route-line{display:flex; flex-wrap:wrap; align-items:center; gap:8px; font-family:var(--mono); font-size:13px; color:var(--ink-2);}
+  .route-line .dot{width:6px;height:6px;border-radius:50%;background:var(--stamp);}
+
+  /* ---- phase nav ---- */
+  nav.phasenav{
+    display:flex; gap:6px; overflow-x:auto; padding:16px 0; margin-bottom:6px;
+    border-bottom:1px solid var(--line);
+  }
+  nav.phasenav a{
+    flex:none; font-family:var(--mono); font-size:12.5px; color:var(--ink-2);
+    text-decoration:none; padding:6px 11px; border:1px solid var(--line); border-radius:20px;
+    white-space:nowrap; background:var(--card);
+  }
+  nav.phasenav a:hover{border-color:var(--stamp); color:var(--stamp);}
+
+  /* ---- sections ---- */
+  section.phase{padding:44px 0 8px; border-bottom:1px solid var(--line); scroll-margin-top:76px;}
+  section.phase:last-of-type{border-bottom:none;}
+  .phase-head{display:flex; align-items:baseline; gap:14px; margin-bottom:6px;}
+  .phase-num{font-family:var(--mono); font-size:13px; color:var(--stamp);}
+  .phase h2{font-family:var(--serif); font-size:25px; margin:0; font-weight:600;}
+  .phase-desc{color:var(--text-dim); font-size:14.5px; margin:4px 0 24px; max-width:60ch;}
+
+  ol.steps{margin:0 0 22px; padding:0; list-style:none; counter-reset:step;}
+  ol.steps li{
+    counter-increment:step; position:relative; padding:9px 0 9px 34px; font-size:15px;
+    border-top:1px solid var(--line);
+  }
+  ol.steps li:first-child{border-top:none;}
+  ol.steps li::before{
+    content:counter(step); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; color:var(--stamp); width:22px;
+  }
+  ol.steps li b{font-weight:600;}
+  ol.steps li .note{color:var(--text-dim); font-size:13.5px;}
+
+  ul.plain{margin:0 0 22px; padding:0; list-style:none;}
+  ul.plain li{padding:7px 0 7px 18px; font-size:15px; position:relative; border-top:1px solid var(--line);}
+  ul.plain li:first-child{border-top:none;}
+  ul.plain li::before{content:'—'; position:absolute; left:0; color:var(--text-dim);}
+
+  .market-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:10px; margin:0 0 24px;}
+  .market{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:12px 14px;}
+  .market .name{font-weight:600; font-size:14.5px; margin-bottom:3px;}
+  .market .tag{font-family:var(--mono); font-size:12px; color:var(--text-dim);}
+
+  .route{position:relative; margin:0 0 26px; padding-left:26px;}
+  .route::before{content:''; position:absolute; left:9px; top:10px; bottom:10px; width:1px; background:var(--line);}
+  .route .stop{position:relative; padding:0 0 22px;}
+  .route .stop:last-child{padding-bottom:0;}
+  .route .stop::before{
+    content:''; position:absolute; left:-26px; top:5px; width:9px; height:9px; border-radius:50%;
+    background:var(--paper); border:2px solid var(--ink-2);
+  }
+  .route .stop.hl::before{border-color:var(--stamp); background:var(--stamp);}
+  .route .stop .name{font-weight:600; font-size:15.5px; display:flex; align-items:baseline; gap:9px; flex-wrap:wrap;}
+  .route .stop .entry{font-family:var(--mono); font-size:11.5px; color:var(--text-dim);}
+  .route .stop .focus{font-family:var(--mono); font-size:11px; color:var(--stamp); border:1px solid var(--stamp); border-radius:20px; padding:1px 8px;}
+  .route .stop .tag{font-size:13.5px; color:var(--text-dim); margin-top:3px;}
+
+  b.key{color:var(--stamp); background:rgba(178,58,46,.12); padding:0 4px; border-radius:2px;}
+  .warn{
+    background:var(--card); border-left:3px solid var(--stamp); border-radius:0 var(--radius) var(--radius) 0;
+    padding:13px 16px; font-size:14.5px; margin:4px 0 24px; color:var(--text);
+  }
+  .warn b{color:var(--stamp);}
+
+  /* ---- accordion bank cards ---- */
+  details.bank{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    margin-bottom:10px; overflow:hidden;
+  }
+  details.bank[open]{border-color:var(--ink-2);}
+  details.bank summary{
+    list-style:none; cursor:pointer; padding:15px 18px; display:flex; align-items:center;
+    justify-content:space-between; gap:12px; font-weight:600; font-size:15.5px;
+  }
+  details.bank summary::-webkit-details-marker{display:none;}
+  details.bank summary .chev{font-family:var(--mono); color:var(--text-dim); font-weight:400; font-size:13px; transition:transform .15s;}
+  details.bank[open] summary .chev{transform:rotate(90deg);}
+  details.bank summary .flags{display:flex; gap:6px; flex-wrap:wrap;}
+  .flag{font-family:var(--mono); font-size:10.5px; font-weight:400; padding:2px 7px; border-radius:20px; border:1px solid var(--line); color:var(--text-dim);}
+  .flag.on{border-color:var(--teal); color:var(--teal);}
+  .bank-body{padding:0 18px 18px; border-top:1px solid var(--line);}
+  .bank-body .field{margin-top:14px;}
+  .bank-body .field .label{font-family:var(--mono); font-size:11px; color:var(--stamp); margin-bottom:6px; }
+  .bank-body ol.mini, .bank-body ul.mini{margin:0; padding-left:20px; font-size:14.5px;}
+  .bank-body ol.mini li, .bank-body ul.mini li{padding:3px 0;}
+  .invite{font-family:var(--mono); background:var(--paper-2); padding:2px 7px; border-radius:3px;}
+
+  /* ---- overview timeline (top summary) ---- */
+  .overview{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:22px 22px 8px; margin:26px 0 6px;}
+  .overview .label{font-family:var(--mono); font-size:11.5px; color:var(--stamp); margin-bottom:12px;}
+  .ov-row{display:flex; gap:14px; padding:10px 0; border-top:1px solid var(--line); font-size:14px;}
+  .ov-row:first-of-type{border-top:none;}
+  .ov-row .ov-n{font-family:var(--mono); color:var(--text-dim); width:20px; flex:none;}
+  .ov-row .ov-t{font-weight:600; width:150px; flex:none;}
+  .ov-row .ov-d{color:var(--text-dim);}
+
+  footer{padding:36px 0 60px; color:var(--text-dim); font-size:13px; text-align:center; font-family:var(--mono);}
+
+
+  /* ---- schematic maps ---- */
+  .mapbox{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:14px; margin:0 0 10px; overflow-x:auto;}
+  .mapbox svg{display:block; width:100%; min-width:520px; height:auto;}
+  .mapbox .m-line{stroke:var(--text-dim); stroke-width:1.5; stroke-dasharray:4 5; fill:none;}
+  .mapbox .m-dot{fill:var(--stamp);}
+  .mapbox .m-num{fill:#fff; font:600 12px var(--mono); text-anchor:middle; dominant-baseline:central;}
+  .mapbox .m-lbl{fill:var(--text); font:500 13.5px var(--sans); paint-order:stroke; stroke:var(--card); stroke-width:4px; stroke-linejoin:round;}
+  .mapbox .m-sub{fill:var(--text-dim); font:400 11px var(--mono);}
+  .mapnote{font-size:13px; color:var(--text-dim); margin:0 0 20px;}
+  .maplinks{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:8px; margin:0 0 6px;}
+  .maplinks a{display:flex; gap:10px; align-items:center; text-decoration:none; color:var(--text); background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:9px 12px; font-size:14px;}
+  .maplinks a:hover{border-color:var(--stamp);}
+  .maplinks a b{font-family:var(--mono); font-size:12px; color:#fff; background:var(--stamp); border-radius:50%; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; flex:none;}
+  .maplinks a span.go{margin-left:auto; font-family:var(--mono); font-size:11px; color:var(--text-dim);}
+
+  iframe.gmap{display:block; width:100%; height:440px; border:1px solid var(--line); border-radius:var(--radius); background:var(--paper-2); margin:0 0 20px;}
+
+  ::selection{background:var(--stamp); color:#fff;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="title">开户远征手册</div>
+  <div class="sub">深圳 → 香港</div>
+</header>
+
+<div class="wrap">
+  <section class="hero">
+    <div class="eyebrow">TRAVEL &amp; ACCOUNT-OPENING ITINERARY</div>
+    <h1>深圳过关，把香港的账户一次开齐</h1>
+    <p>从深圳过关拿"小白条"，到银行、虚拟银行、证券账户逐一落地，最后配好电话卡、激活 Apple Watch。这是整趟行程的完整路线图。</p>
+    <div class="route-line"><span>深圳</span><span class="dot"></span><span>福田口岸</span><span class="dot"></span><span>落马洲</span><span class="dot"></span><span>旺角</span><span class="dot"></span><span>尖沙咀</span></div>
+  </section>
+
+  <nav class="phasenav">
+    <a href="#p1">01 前期准备</a>
+    <a href="#p2">02 深圳到香港</a>
+    <a href="#p3">03 交通</a>
+    <a href="#p4">04 银行开户</a>
+    <a href="#p5">05 证券账户</a>
+    <a href="#p6">06 电话卡</a>
+    <a href="#p7">07 Watch激活</a>
+  </nav>
+
+
+  <!-- 01 -->
+  <section class="phase" id="p1">
+    <div class="phase-head"><span class="phase-num">01</span><h2>前期准备</h2></div>
+    <ol class="steps">
+      <li><b>港澳通行证、有效签注</b>——一定要检查有效期，须大于 6 个月</li>
+      <li>如果没有香港手机卡，需将内地手机卡开通香港漫游套餐，并开启数据漫游：设置 → 蜂窝网络 → 你的移动号码 → 数据漫游 → 开启；流量可以在支付宝或者移动 App 里购买，买一天的就行</li>
+      <li>身份证</li>
+      <li>内地储蓄卡</li>
+      <li>国家移民管理局出具的出入境记录 PDF（移民局 12367 微信小程序，截图无效）——<b>到旺角东之后再下载</b></li>
+      <li>内地手机号，需开通漫游功能，用于接收短信</li>
+      <li>常用邮箱，手机上最好下载一个邮箱软件并登录</li>
+      <li>提前下载 App：
+        <div class="note" style="margin-top:6px"><b>大陆 Apple ID 下载：</b>谷歌地图、ZA BANK（众安）、中信银行国际、平安数字银行、汇丰香港、BOCHK 中银香港、haha Travel、GigaMoney</div>
+        <div class="note" style="margin-top:4px"><b>香港 Apple ID 下载：</b>星财富、致富证券、Tiger Trade、云锋有鱼</div>
+      </li>
+      <li>最好带上笔记本电脑，查资料更方便</li>
+    </ol>
+  </section>
+
+  <section class="phase" id="p2">
+    <div class="phase-head"><span class="phase-num">02</span><h2>深圳到香港</h2></div>
+    <p class="phase-desc">相关路线建议在高德地图收藏。</p>
+    <ol class="steps">
+      <li>如果入住在深圳会展中心附近，坐地铁4号线（龙华线，福田口岸方向）到福田口岸地铁站</li>
+      <li>如果在岗厦地铁站附近，坐10号线（福田口岸方向）到福田口岸地铁站</li>
+      <li>A口出地铁站后进入福田口岸，通关时间 <span class="note">6:30–22:30</span></li>
+      <li><b>内地查验通道：</b>首次入境香港走人工查验通道，把港澳通行证给工作人员，刷脸即可</li>
+      <li><b>香港查验通道：</b>走<b style="color:var(--stamp);background:rgba(178,58,46,.12);padding:0 4px;border-radius:2px">旅客</b>自助闸机，先刷港澳通行证，通行后刷指纹验证，通过后会吐出过关小票（小白条）</li>
+      <li>福田口岸过关后到的是香港落马洲，在落马洲站</li>
+    </ol>
+    <div class="warn">
+      <b>过关小票（"小白条"）</b>一定要保存好，开券商的必备材料，银行开户也要用。
+    </div>
+  </section>
+
+  <section class="phase" id="p3">
+    <div class="phase-head"><span class="phase-num">03</span><h2>香港交通</h2></div>
+    <ol class="steps">
+      <li>落马洲站直接对接港铁东铁线</li>
+      <li>从落马洲站搭乘东铁线（金钟方向）到<b>旺角东站</b></li>
+      <li>乘坐地铁时<b class="key">不要坐头等舱</b>——头等舱里全是座位，很好区分，一般是<b class="key">第一节车厢</b></li>
+      <li>到旺角东站后（建议先在站内上个厕所），步行：亚皆老街 → 旺角站 / 弥敦道方向</li>
+      <li>沿街右侧有一个<b class="key">麦当劳（香港九龍旺角亞皆老街店）</b>，进入后<b class="key">上二楼</b>，开始办银行卡；这里的麦当劳<b class="key">可以直接连 WiFi</b></li>
+    </ol>
+    <div class="field" style="margin-top:26px"><div class="label" style="font-family:var(--mono);font-size:11px;color:var(--stamp);margin-bottom:10px">谷歌地图 · 旺角一带（步行）</div>
+      <p class="mapnote" style="margin-bottom:10px">旺角东站 → 麦当劳 → 汇丰 → 中银 → 丰泽 → 中信，按办理顺序依次步行。</p>
+      <iframe class="gmap" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen src="https://maps.google.com/maps?saddr=22.32205,114.1726&daddr=22.319922,114.171292+to:22.322149,114.169301+to:22.321323,114.17096+to:22.319197,114.169806+to:22.319282,114.170346&dirflg=w&hl=zh-CN&output=embed"></iframe>
+    </div>
+    <div class="field"><div class="label" style="font-family:var(--mono);font-size:11px;color:var(--stamp);margin-bottom:10px">谷歌地图 · 旺角站 → 尖沙咀海防道（公共交通）</div>
+      <p class="mapnote" style="margin-bottom:10px">从中信银行步行到<b class="key">旺角站</b>，坐荃湾线往中环方向到尖沙咀站，再沿海防道走到汉口道交界；注意不是旺角东站。</p>
+      <iframe class="gmap" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen src="https://maps.google.com/maps?saddr=22.319253,114.169355&daddr=22.298091,114.171036&dirflg=r&hl=zh-CN&output=embed"></iframe>
+    </div>
+    <div class="field"><div class="label" style="font-family:var(--mono);font-size:11px;color:var(--stamp);margin-bottom:10px">在谷歌地图中打开</div>
+      <div class="maplinks"><a href="https://maps.google.com/?cid=12620528516926507214" target="_blank" rel="noopener"><b>1</b>旺角东站<span class="go">谷歌地图 ↗</span></a><a href="https://maps.google.com/?cid=11174905567008286228" target="_blank" rel="noopener"><b>2</b>麦当劳（亞皆老街店）<span class="go">谷歌地图 ↗</span></a><a href="https://maps.google.com/?cid=8048001006173444951" target="_blank" rel="noopener"><b>3</b>汇丰始创中心分行<span class="go">谷歌地图 ↗</span></a><a href="https://maps.google.com/?cid=4701847471487252026" target="_blank" rel="noopener"><b>4</b>中银香港（旺角道）<span class="go">谷歌地图 ↗</span></a><a href="https://maps.google.com/?cid=12401594941417174313" target="_blank" rel="noopener"><b>5</b>丰泽（惠丰中心店）<span class="go">谷歌地图 ↗</span></a><a href="https://maps.google.com/?cid=14307594669579540251" target="_blank" rel="noopener"><b>6</b>中信银行国际旺角分行<span class="go">谷歌地图 ↗</span></a><a href="https://maps.google.com/?cid=10756555422988640888" target="_blank" rel="noopener"><b>7</b>旺角站（荃湾线）<span class="go">谷歌地图 ↗</span></a><a href="https://maps.google.com/?cid=3873604217427079581" target="_blank" rel="noopener"><b>8</b>尖沙咀站<span class="go">谷歌地图 ↗</span></a><a href="https://maps.google.com/?q=Haiphong+Rd+%26+Hankow+Rd,+Tsim+Sha+Tsui,+Kowloon,+Hong+Kong" target="_blank" rel="noopener"><b>9</b>海防道与汉口道交界<span class="go">谷歌地图 ↗</span></a></div>
+    </div>
+  </section>
+
+  <section class="phase" id="p4">
+    <div class="phase-head"><span class="phase-num">04</span><h2>银行开户</h2></div>
+    <p class="phase-desc">共同材料通常包括：身份证、港澳通行证、过关小白条、出入境记录PDF（移民局12367小程序）、地址证明、内地手机号。以下按开户方式分组，点开查看细节。</p>
+    <div class="warn" style="margin-top:0">
+      <b>办理顺序：</b>先在<b class="key">麦当劳（亞皆老街店）二楼</b>连 WiFi 进行线上开户——<b class="key">众安、汇丰、中银、平安</b>先线上开户（卡片上标有"第一批"）。完成后，再去证券账户那章办理云锋、复星、致富、腾达。
+    </div>
+
+    <details class="bank" open>
+      <summary>众安银行 ZA Bank<span class="flags"><span class="flag" style="border-color:var(--stamp);color:var(--stamp)">第一批</span><span class="flag on">线上</span><span class="flag on">必开投资功能</span></span><span class="chev">▸</span></summary>
+      <div class="bank-body">
+        <div class="warn" style="margin-top:14px">一定要开通<b>投资功能</b>，包括<b>港股、美股、基金</b>！实际流程比常见攻略更简单。</div>
+        <div class="field"><div class="label">储蓄账户</div>
+          <ol class="mini">
+            <li>邀请码 <span class="invite">MT7GN6</span></li>
+            <li>使用香港本地流量（开了香港流量的那张卡）</li>
+            <li>打开 App，点"立即开户"（<b class="key">填写邀请码！</b>），证件类型选"居民身份证"；输入内地手机号获取验证码，再填邮箱并验证</li>
+            <li>按提示拍摄身份证正反面（反光或边角没拍全会被打回），并做人脸识别（光线充足，不要背光）</li>
+            <li>如实填写职业（全职授薪）、通信地址（身份证上的地址）、税务居民身份（通常选"仅中国税收居民"，税号填身份证号）、开户目的（储蓄、投资、日常消费等）</li>
+            <li>绑定内地储蓄卡，并上传之前下载的"移民局12367"PDF 版出入境记录</li>
+            <li>设置 App 登录用户名和密码</li>
+            <li>等待审核，通常几分钟到几小时即可通过</li>
+            <li>开户并通过内部审核后，先获得虚拟 ZA Card</li>
+          </ol>
+        </div>
+        <div class="field"><div class="label">投资账户</div>
+          <p style="margin:0 0 8px;font-size:14.5px">储蓄账户开通后，在 App 首页或"账户"页面会有"开通投资账户"入口。材料：3个月内的地址证明——<b class="key">直接用身份证就行</b>。</p>
+          <ol class="mini">
+            <li>点进入口，按系统引导走：确认是否美国税务居民（选"否"）、电子签名等</li>
+            <li>开户目的建议填"投资"或"理财"</li>
+            <li>确认个人身份及投资资料</li>
+            <li>填写 W-8BEN</li>
+            <li>完成投资经验等资料</li>
+            <li>如适用，完成衍生产品知识评测</li>
+            <li>同意香港投资者识别码制度 HKIDR 相关个人资料传送</li>
+            <li>完成电子签名</li>
+            <li>提交股票账户申请</li>
+          </ol>
+        </div>
+        <div class="field"><div class="label">基金</div>
+          <p style="margin:0 0 8px;font-size:14.5px">股票账户开通后，检查"投资 → 基金"；如果基金尚未启用，单独申请基金交易服务。</p>
+          <ol class="mini">
+            <li>持有有效 ZA Bank 储蓄账户</li>
+            <li>完成客户风险分析问卷</li>
+            <li>确定自己的投资风险等级</li>
+            <li>阅读基金投资风险披露</li>
+            <li>完成相关电子协议</li>
+          </ol>
+          <div class="warn" style="margin-top:12px">不要因为已经开通港美股，就默认基金也自动开通。</div>
+        </div>
+        <div class="field"><div class="label">离港检查</div>
+          <p style="margin:0 0 8px;font-size:14.5px">离港之前打开 ZA Bank App，逐项确认：</p>
+          <ul class="mini" style="list-style:none;padding-left:0"><li>☐ ZA Bank 储蓄账户：已开通</li><li>☐ 虚拟 ZA Card：已获得</li><li>☐ 港股交易：已开通 / 已提交申请</li><li>☐ 美股交易：已开通 / 已提交申请</li><li>☐ W-8BEN：已完成</li><li>☐ 地址证明：已提交</li><li>☐ HKIDR 授权：已完成</li><li>☐ 基金交易：已开通 / 已提交申请</li><li>☐ 风险评估问卷：已完成</li><li>☐ 投资账户审核状态：正常</li><li>☐ 港币账户：正常</li><li>☐ 美元账户：正常</li></ul>
+          <div class="warn" style="margin-top:12px">目标不是只看到"投资"入口，而是确认<b>港股、美股、基金</b>三个功能分别可以正常使用。</div>
+        </div>
+      </div>
+    </details>
+    <details class="bank">
+      <summary>汇丰银行 HSBC<span class="flags"><span class="flag" style="border-color:var(--stamp);color:var(--stamp)">第一批</span><span class="flag on">线上申请</span><span class="flag on">需补签名</span></span><span class="chev">▸</span></summary>
+      <div class="bank-body">
+        <div class="field"><div class="label">线上开户</div>
+          <ol class="mini">
+            <li>使用手机漫游流量或连接香港 WiFi，并开启手机定位，确保定位显示在香港</li>
+            <li>打开汇丰香港 App，选"我没有任何账户" → 确认"身处香港" → 选"没有香港身份证"</li>
+            <li>账户类型选 <b class="key">汇丰卓越理财 HSBC Premier</b>，开户原因建议选"打算在香港储蓄/投资"，申请方式选"网上申请"</li>
+            <li>绑定常用邮箱和内地手机号（+86）接收验证码；国籍选中国，证件类型选"往来港澳通行证"</li>
+            <li>拍摄通行证资料页上传（光线充足、无反光）；完成人脸识别；开启手机 NFC，将通行证紧贴手机背面中上感应区域读取芯片信息；上传 PDF 版出入境记录</li>
+            <li>如实填写出生地、职业（<b class="key">待业</b>）、工作单位等；居住地址用<b class="key">身份证上的地址</b>，分两行排，末尾加上手机号方便收卡；税务居民选"是"，税号填内地身份证号</li>
+            <li>核对无误后提交，信息干净的情况下，通常 30 秒到几分钟内显示"开户成功"</li>
+          </ol>
+        </div>
+        <div class="field"><div class="label">开户成功后的关键操作</div>
+          <ol class="mini">
+            <li><b class="key">千万不要直接退出 App！</b>当场设置用户名、网银密码（仅字母或数字），并设置好保安问题及答案（记在备忘录，忘记后回内地很难找回）</li>
+            <li>设置指纹或人脸生物识别登录，方便日常使用</li>
+            <li>开户满 24 小时后重新登录 App，在"转账及缴费 → 网上功能设置"中，打开"网上提高转账限额功能"和"网上添加收款人功能"</li>
+            <li>建议存入至少 500 港币（这个可以等回大陆了再做）</li>
+          </ol>
+        </div>
+        <div class="warn" style="margin-top:16px">账户申请成功后，前往<b>汇丰始创中心分行</b>（弥敦道 750 号始创中心 <b class="key">3 楼</b> 218 铺）补签名：进门取号，说"补签名"，一两分钟就能补完。<b class="key">一定要去柜台补签名！一定要去柜台补签名！一定要去柜台补签名！</b></div>
+        <div class="field"><div class="label">分行营业时间（补签名别错过）</div>
+          <ul class="mini">
+            <li>周一至周四 <b class="key">9:00–16:30</b></li>
+            <li>周五 <b class="key">9:00–17:00</b></li>
+            <li>周六 <b class="key">9:00–13:00</b></li>
+            <li>周日 <b class="key">休息</b></li>
+          </ul>
+        </div>
+        <div class="field"><div class="label">注意事项</div>
+          <ul class="mini">
+            <li><b>地址填写要精准：</b>实体卡会邮寄到填写的地址，务必精确到门牌号，并仔细核对系统自动翻译的英文地址，错一个字母都可能导致卡片寄丢</li>
+            <li>职业信息写<b>待业</b></li>
+            <li><b>保持账户活跃：</b>开卡后不要长期闲置，每半年至少有一笔正常的进出账记录，避免账户被冻结；不要频繁小额快进快出，以免触发风控</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+    <details class="bank">
+      <summary>中国银行香港<span class="flags"><span class="flag" style="border-color:var(--stamp);color:var(--stamp)">第一批</span><span class="flag on">线上开户</span><span class="flag">补签名不一定成功</span></span><span class="chev">▸</span></summary>
+      <div class="bank-body">
+        <div class="field"><div class="label">线上开户</div>
+          <ol class="mini">
+            <li>提前下载中国银行香港版 App，线上完成开户，减少线下排队时间</li>
+            <li>准备材料：小白条、入境记录、身份证、港澳通行证、内地手机号、地址证明</li>
+            <li>打开 App 点"开立账户"，选"中国内地居民身份证"，勾选"我身处香港"，系统会自动核验定位</li>
+            <li>账户类型建议选 <b class="key">自在理财</b>，无存款要求且无管理费</li>
+            <li>上传 PDF 格式的出入境记录，拍摄身份证和通行证正反面，完成人脸识别</li>
+            <li>如实填写职业和通讯地址（需详细到门牌号，用于邮寄实体卡），提交后通常几分钟到几小时内出结果</li>
+          </ol>
+        </div>
+        <div class="field"><div class="label">补签名</div>
+          <ol class="mini" start="7">
+            <li>开户成功后，前往任意中国银行香港网点（如：香港九龍旺角旺角道 50-52 號），取号并告知柜员要补签名</li>
+            <li><b class="key">不一定能成功</b>，到了可能被告知需要预约；<b class="key">不签名也没关系，能正常用</b></li>
+            <li>补签名后，账户权限与线下开户完全一致</li>
+          </ol>
+        </div>
+        <div class="field"><div class="label">防止账户冻结</div>
+          <p style="margin:0;font-size:14.5px">开户后建议存入少量港币（如 100–1000 港币），保持账户有余额。账户长期零余额或长期不使用，可能被标记为低活跃账户甚至暂停服务。</p>
+        </div>
+        <div class="warn" style="margin-top:16px">如果网上开户提示<b>开户失败</b>，而这时时间还早，<b class="key">立马找一家分行，直接现场开户</b>。</div>
+        <div class="field"><div class="label">分行营业时间（补签名别错过）</div>
+          <ul class="mini">
+            <li>周一至周五 <b class="key">9:00–17:00</b></li>
+            <li>周六 <b class="key">9:00–13:00</b></li>
+            <li>周日 <b class="key">休息</b></li>
+          </ul>
+        </div>
+      </div>
+    </details>
+    <details class="bank">
+      <summary>平安数字银行香港<span class="flags"><span class="flag" style="border-color:var(--stamp);color:var(--stamp)">第一批</span><span class="flag on">线上</span><span class="flag on">审核最慢</span></span><span class="chev">▸</span></summary>
+      <div class="bank-body">
+        <div class="field"><div class="label">流程</div>
+          <ol class="mini">
+            <li>邀请码 <span class="invite">SRJI3W</span></li>
+            <li>准备材料：入境记录、身份证、港澳通行证、内地手机号、地址证明</li>
+            <li>使用香港流量或连接香港 WiFi，打开平安数字银行 App，用内地手机号注册，<b class="key">填写邀请码</b></li>
+            <li>按提示录入个人基本信息，上传身份证和通行证照片（系统自动识别），完成活体人脸识别认证，确保光线充足、面部无遮挡</li>
+            <li>确认信息无误后提交，等待银行后台审核</li>
+            <li>审核通过后会收到开通成功的邮件或短信，登录 App 设置交易密码即可使用</li>
+          </ol>
+        </div>
+        <div class="warn" style="margin-top:16px">相比其他虚拟银行，审核有时较慢，可能需要 <b class="key">1–3 周</b>，建议耐心等待，<b>不要频繁重复提交</b>。</div>
+        <div class="field"><div class="label">保持账户活跃</div>
+          <p style="margin:0;font-size:14.5px">至少连续 <b class="key">24 个月</b>进行转账或付款操作，避免账户被判定为"持有不动账户"而受限。</p>
+        </div>
+      </div>
+    </details>
+    <details class="bank">
+      <summary>中信银行国际（旺角分行）<span class="flags"><span class="flag on">线下预约</span><span class="flag">需香港手机号</span><span class="flag">需数天审核</span></span><span class="chev">▸</span></summary>
+      <div class="bank-body">
+        <div class="warn" style="margin-top:14px">这个需要<b class="key">香港手机号</b>，所以可以放到<b class="key">最后办理</b>。</div>
+        <div class="field"><div class="label">提前预约</div>
+          <p style="margin:0 0 8px;font-size:14.5px">通过信银国际官网的"跨境服务 → 开户服务 → 亲临中信银行国际开户服务"进行网上预约，填写姓名和电话后，等待分行工作人员回电确认具体时间。</p>
+          <p style="margin:0;font-size:14.5px">如果没有预约上，就直接在线上提交，也可以到现场碰碰运气。</p>
+        </div>
+        <div class="field"><div class="label">到店流程</div>
+          <ol class="mini">
+            <li>前往中信银行（国际）旺角分行（九龙旺角亚皆老街），到达网点后取号。如果问你有没有预约，<b class="key">没有预约不让办</b>，那就重新找一个网点，或者直接网上申请</li>
+            <li>KYC：问开户用途、资金来源、职业收入等</li>
+            <li>填表签署（预留香港手机号），进入审核，审核需要几个工作日，不是当场就能开好</li>
+            <li>审核通过后，经理会帮你录入资料，通常需要现场存入一定金额激活账户</li>
+            <li>开户成功后，现场会给你网银密码函，可以立即登录 inMotion 动感银行 App 查看账号并转账</li>
+            <li>实体借记卡一般是制卡后邮寄到登记地址，或按通知到分行领取</li>
+            <li>开通网银、激活卡片才能正常使用</li>
+            <li>开户后不要长期闲置，建议每月至少有一笔转账或消费记录，以免被银行冻结</li>
+          </ol>
+        </div>
+        <div class="field"><div class="label">分行营业时间</div>
+          <ul class="mini">
+            <li>周一至周五 <b class="key">9:00–17:00</b></li>
+            <li>周六 <b class="key">9:00–13:00</b></li>
+            <li>周日 <b class="key">休息</b></li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+
+
+
+    <details class="bank">
+      <summary>象象银行（大象银行）<span class="flags"><span class="flag">线上</span><span class="flag">基本无法办理</span><span class="flag">可试一次</span></span><span class="chev">▸</span></summary>
+      <div class="bank-body">
+        <div class="warn" style="margin-top:14px"><b class="key">目前基本无法办理了</b>，可以进行<b>一次尝试</b>——万一运气好，没有资金限制，那就办理。</div>
+        <div class="field"><div class="label">限制条件</div>
+          <ul class="mini">
+            <li><b>资产证明：</b>需提供等值 <b class="key">10 万港币以上</b>的海外/非内地金融资产证明（如香港或海外银行/券商结单，文件发出日期需在提交之日三个月内）</li>
+            <li><b>投资账户限制：</b>目前暂不接受仅持有内地身份及/或内地护照的客户新开投资账户（炒股/买基金），仅能开立储蓄账户用于存款和转账</li>
+            <li><b>政策收紧：</b>自 <b class="key">2026 年 9 月起</b>，10 万港币资产证明的要求已严格执行，没有相关证明无法开户</li>
+          </ul>
+        </div>
+        <div class="field"><div class="label">开户流程</div>
+          <ol class="mini">
+            <li>在香港境内下载大象银行（EleBank）手机应用程序</li>
+            <li>注册账户：香港或中国内地手机号，完成短信验证码认证</li>
+            <li>身份验证：按 App 提示上传内地身份证原件照片，并进行人脸识别</li>
+            <li>提交资料：填写个人基本信息，上传海外金融资产证明及出入境记录文件</li>
+            <li>等待审核：提交后通常几分钟到几小时内完成审核，通过后会收到开户成功通知</li>
+            <li>激活使用：登录 App 管理账户，如需实体卡可申请邮寄</li>
+            <li>储蓄账户开好后，立即尝试申请投资账户</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+
+  </section>
+
+  <section class="phase" id="p5">
+    <div class="phase-head"><span class="phase-num">05</span><h2>证券账户</h2></div>
+    <p class="phase-desc">部分需要港币入金才能激活，排在已有可用港卡之后办理更顺。</p>
+    <div class="warn" style="margin-top:0">
+      <b>办理顺序：</b>银行开户那章的<b class="key">众安、汇丰、中银、平安</b>先线上开户，之后再线上开户<b class="key">云锋、复星、致富、腾达</b>（卡片上标有"第二批"）。
+    </div>
+    <div class="field" style="margin:18px 0 22px"><div class="label" style="font-family:var(--mono);font-size:11px;color:var(--stamp);margin-bottom:10px">去尖沙咀海防道的路线（老虎 / 复星 / 致富 流动车）</div>
+      <div class="route">
+        <div class="stop"><div class="name">中信银行国际旺角分行</div><div class="tag">办完后出发，步行去旺角站</div></div>
+        <div class="stop"><div class="name">旺角站<span class="entry">港铁荃湾线</span></div><div class="tag">往<b>中环</b>方向乘车</div></div>
+        <div class="stop"><div class="name">尖沙咀站<span class="focus">A1 出口</span></div><div class="tag">从 A1 出口出站，沿海防道步行</div></div>
+        <div class="stop hl"><div class="name">海防道与汉口道交界<span class="entry">海防道 31 号附近</span></div><div class="tag">找流动服务车；有时只有两个举牌的人，注意看街边</div></div>
+      </div>
+      <div class="warn" style="margin:12px 0 0">注意是<b class="key">旺角站</b>（荃湾线），<b>不是旺角东站</b>（过关时坐东铁线到的那一站），别坐错线。</div>
+    </div>
+
+    <details class="bank">
+      <summary>云锋有鱼<span class="flags"><span class="flag" style="border-color:var(--stamp);color:var(--stamp)">第二批</span><span class="flag on">线上</span><span class="flag on">不依赖港卡</span></span><span class="chev">▸</span></summary>
+      <div class="bank-body">
+        <div class="field"><div class="label">邀请码注册入口</div>
+          <p style="margin:0 0 6px;font-size:14.5px">云锋有鱼 App 里绑定邀请码的地方很隐蔽，建议通过下面这个链接进入注册（邀请码 <span class="invite">J29IRZ</span>）：</p>
+          <a href="https://open-acct.youyu.cn/open-account/#/accounts/login?code=J29IRZ" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:12.5px;color:var(--ink-2);word-break:break-all">https://open-acct.youyu.cn/open-account/#/accounts/login?code=J29IRZ</a>
+        </div>
+        <div class="field"><div class="label">流程</div>
+          <ol class="mini">
+            <li>在手机官方应用商店搜索"云锋有鱼"下载（<b class="key">香港 Apple ID</b>），或通过云锋金融官网进入开户页面，<b class="key">切勿点击不明短信链接</b></li>
+            <li>使用本人实名手机号接收验证码并完成注册</li>
+            <li>拍摄并上传身份证正反面照片，系统自动识别信息，务必核对姓名和身份证号是否准确</li>
+            <li>填写个人基本信息，包括职业（<b class="key">待业</b>）、住址、学历等，需如实填写</li>
+            <li>完成投资者风险承受能力问卷，根据实际情况作答，不要为了通过而随意选择</li>
+            <li>按 App 提示完成人脸识别 / 身份核验（视频见证），确认是本人自愿办理，保持光线充足、环境安静</li>
+            <li>设置交易密码（用于买卖股票）和交易密码，建议两个密码不要完全相同</li>
+            <li>添加本人名下的储蓄卡作为三方存管账户，确保资金闭环划转</li>
+            <li>阅读并勾选相关电子协议，提交开户申请，通常在 1 个交易日内会收到审核通过的短信通知</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+    <details class="bank">
+      <summary>复星证券<span class="flags"><span class="flag" style="border-color:var(--stamp);color:var(--stamp)">第二批</span><span class="flag">线上</span><span class="flag">需港卡</span><span class="flag">入金可回大陆再做</span></span><span class="chev">▸</span></summary>
+      <div class="bank-body">
+        <div class="warn" style="margin-top:14px">这个需要<b class="key">香港银行卡</b>，等众安卡下来了再办。</div>
+        <div class="field"><div class="label">线上流程</div>
+          <ol class="mini">
+            <li>邀请码 <span class="invite">V2WVMX</span></li>
+            <li>连接香港网络，打开<b>星财富 App</b>（<b class="key">香港 Apple ID</b>）进行线上注册</li>
+            <li>上传身份证、通行证照片，配合完成人脸识别和活体认证，职业填<b class="key">待业！！！</b></li>
+            <li>资金要求：需向证券账户转入单笔不少于等值 <b class="key">10,000 港元</b>的资金，用于身份验证和激活账户——<b class="key">这个可以等回大陆了再激活</b></li>
+            <li>香港银行入金：使用你名下的香港银行账户，通过 EDDA（快捷入金）或银行转账，将至少 10,000 港元转入复星证券账户——<b class="key">这个也可以等回大陆了再激活</b></li>
+            <li>资金到账后账户即正式激活，可设置交易密码并开始交易</li>
+          </ol>
+        </div>
+        <div class="field"><div class="label">线上不会操作？</div>
+          <p style="margin:0;font-size:14.5px">前往香港尖沙咀海防道的<b>复星证券流动车</b>，工作人员会协助你完成注册，但是需要用<b class="key">他们的邀请码</b>。</p>
+        </div>
+      </div>
+    </details>
+    <details class="bank">
+      <summary>致富证券<span class="flags"><span class="flag" style="border-color:var(--stamp);color:var(--stamp)">第二批</span><span class="flag">线上</span><span class="flag">需港卡</span><span class="flag">入金可回大陆再做</span></span><span class="chev">▸</span></summary>
+      <div class="bank-body">
+        <div class="warn" style="margin-top:14px">需要<b class="key">香港银行卡</b>（建议提前准备本人名下的香港银行卡）。</div>
+        <div class="field"><div class="label">线上流程</div>
+          <ol class="mini">
+            <li>邀请码 <span class="invite">GQ6753</span></li>
+            <li>准备材料：小白条、入境记录、身份证、港澳通行证、内地手机号、地址证明、资金证明</li>
+            <li>在手机上下载"致富通"App（内地应用商店搜不到，可尝试将手机地区暂时改为香港）</li>
+            <li>按指引填写身份资料、税务资料，上传身份证和通行证照片，并完成风险问卷</li>
+            <li>提交后等待审核，通常速度较快，但可能会被要求补充地址证明或资金来源说明</li>
+            <li>入金激活：审核通过后，需从<b>同名银行账户</b>入金（通常建议存入 HK$10,000 或以上，以激活账户或参与新手活动）——<b class="key">这个可以等回大陆了再激活</b></li>
+            <li>有香港银行卡体验最好：可通过 eDDA（电子直接付款授权，最低 HK$500，免手续费，即时到账）或 FPS（香港转数快）入金——<b class="key">这个也可以等回大陆了再激活</b></li>
+          </ol>
+        </div>
+        <div class="field"><div class="label">线上不会操作？</div>
+          <p style="margin:0;font-size:14.5px">前往香港尖沙咀海防道的<b>致富证券流动车</b>，工作人员会协助你完成注册，但是需要用<b class="key">他们的邀请码</b>。</p>
+        </div>
+      </div>
+    </details>
+    <details class="bank">
+      <summary>腾达证券 GigaMoney<span class="flags"><span class="flag" style="border-color:var(--stamp);color:var(--stamp)">第二批</span><span class="flag">线上</span><span class="flag">需港卡</span></span><span class="chev">▸</span></summary>
+      <div class="bank-body">
+        <div class="warn" style="margin-top:14px">需要<b class="key">香港银行卡</b>（建议提前准备本人名下的香港银行卡）。</div>
+        <div class="field"><div class="label">线上流程</div>
+          <ol class="mini">
+            <li>邀请码 <span class="invite">XDGLBRVJ</span></li>
+            <li>准备材料：小白条、入境记录、身份证、港澳通行证、内地手机号、地址证明</li>
+            <li>务必通过腾达证券官方网站或官方应用商店下载 App <b>GigaMoney</b>，<b class="key">切勿点击不明来源的第三方链接或扫码</b>，以防遭遇钓鱼软件</li>
+            <li>使用手机号注册，填写个人身份信息，并按要求上传身份证正反面照片</li>
+            <li>根据系统提示完成人脸识别或视频核验；部分渠道可能要求本人亲临香港线下门店完成身份核验</li>
+            <li>审核通过后，绑定你的香港银行卡进行出入金测试</li>
+            <li>完成官方的风险承受能力评估问卷，即可开始交易</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+    <details class="bank">
+      <summary>老虎证券（尖沙咀）<span class="flags"><span class="flag on">线下</span></span><span class="chev">▸</span></summary>
+      <div class="bank-body">
+        <div class="field"><div class="label">路线</div>
+          <p style="margin:0 0 8px;font-size:14.5px">旺角站坐港铁荃湾线往中环方向，到尖沙咀站 A1 出口，沿海防道步行，到海防道 31 号 / 海防道与汉口道交界附近，找老虎证券流动服务车。</p>
+          <div class="warn" style="margin:8px 0 0">有时候也可能没有车，<b class="key">只有两个举牌的人</b>，注意看街边举牌的人。</div>
+        </div>
+        <div class="field"><div class="label">流程</div>
+          <ol class="mini">
+            <li>找工作人员帮助你进行注册</li>
+            <li>注册过程中确认邀请码显示为 <span class="invite">MAOMOMO88</span>，避免邀请码漏填、填错或渠道绑定失败</li>
+            <li>扫码进入注册流程，如果出现让选择职业，一律选择 <b class="key">待业</b></li>
+            <li>在邀请码栏再次确认填写 <span class="invite">MAOMOMO88</span></li>
+          </ol>
+        </div>
+      </div>
+    </details>
+
+
+
+
+  </section>
+
+  <section class="phase" id="p6">
+    <div class="phase-head"><span class="phase-num">06</span><h2>香港电话卡</h2></div>
+    <div class="warn" style="margin-top:14px">
+      <b class="key">丰泽 11 点才开门。</b>线上办完银行卡和证券账户后，如果到 11 点了就去丰泽；如果还没到 11 点，先去线下进行<b>汇丰、中银的补签名</b>。
+    </div>
+    <ol class="steps">
+      <li>先到旺角东，找到丰泽 Fortress 门店（惠丰中心店）</li>
+      <li>购买 <b>haha TRAVEL SIM</b>，目前官方价约 HK$50/张，内含 HK$50 储值额；可以买多张备用</li>
+      <li>下载 haha TRAVEL App</li>
+      <li>把 haha SIM 插入手机，连接香港 WiFi（可以继续回<b>麦当劳（香港九龍旺角亞皆老街店）</b>操作），收到激活短信并记录香港电话号码；双卡手机遇到问题时，官方建议把 haha 卡放 SIM 1</li>
+      <li>保存 SIM 大卡/包装（<b class="key">一定要保留好</b>），记录每张卡的<b>手机号 + ICCID</b>（充值话费以及登录号码的重要信息）</li>
+      <li>在 haha TRAVEL 完成实名登记；使用本人港澳通行证时，按 App 实际显示选择对应的旅行证件类型</li>
+      <li>如果买多张卡，<b>一张一张</b>完成激活和实名：最好换个手机，<b class="key">一个手机一张 SIM 卡</b>；只有一个手机的话，就把之前的 SIM 卡移除，再换卡激活</li>
+      <li>只给实际需要上网的主卡购买香港本地流量套餐（38HK）；其他备用卡不需要为了保号每月买流量（如果已经有香港流量套餐，可以忽略这一步，不需要再买）</li>
+      <li>每张卡激活后有效期 365 天</li>
+      <li>每张需要长期保留的号码，到期前分别充值至少 HK$10，再延长 365 天（记得是<b class="key">充值，不是买流量</b>，相当于一年 10 港币保号）</li>
+      <li>每次充值后，在 haha TRAVEL 中确认新的有效期</li>
+      <li>如果收到发送者为 <b class="key">#SIMREG</b> 的实名抽查短信，要及时按要求重新验证，否则号码可能被停用。香港通讯办明确规定运营商会进行抽样复核</li>
+    </ol>
+  </section>
+
+  <section class="phase" id="p7">
+    <div class="phase-head"><span class="phase-num">07</span><h2>Apple Watch 激活</h2></div>
+    <p class="phase-desc">放在行程最后做——前面已经配好香港 SIM 与定位，直接顺手完成。</p>
+    <ol class="steps">
+      <li>iPhone 使用香港当地移动网络，例如香港 SIM / eSIM，<b class="key">使用香港流量就行</b></li>
+      <li>定位服务正常开启，让系统确认你确实在香港</li>
+      <li>打开 iPhone：健康 App → 右上角头像 → 健康核对清单</li>
+      <li>看是否出现<b>睡眠呼吸暂停通知</b>和<b>高血压通知</b>，能设置的话直接开</li>
+      <li>如果依旧显示"所在地区不可用"，把 iPhone 和 Watch 均升级到最新 iOS / watchOS</li>
+      <li>如果还是不行，再考虑人在香港时<b class="key">取消配对 → 重新配对</b></li>
+    </ol>
+  </section>
+
+  <footer>深圳 · 香港 开户远征手册 — 请随身妥善保管过关小白条与各账户密码记录</footer>
+</div>
+
+</body>
+</html>
